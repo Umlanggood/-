@@ -1139,3 +1139,512 @@ for i,j in grade.items():
     sum=sum+j
 print("="*10)
 print("합계="+str(sum))
+
+
+def hap(args):
+    sum=0
+    for i in args:
+        sum+=1
+    return sum
+num=int(input("숫자:"))
+print("합계={}".foramt(hap(10,20,30)))
+
+
+#  지역변수
+def hap(n):
+    sum=0
+    for i in range(1,n+1,1):
+        sum+=i
+        print(i,sum)
+
+num=(int(input("숫자:")))
+hap(num)
+
+
+#  전역변수
+x=20
+def hap(n):
+    sum=0
+    for i in range(1,n+1,1):
+        sum+=i
+        print(i,sum)
+
+num=(int(input("숫자:")))
+hap(num)
+print("x=",x)
+
+
+# 전역변수
+x=20
+def hap(n):
+    global x
+    sum=0
+    for i in range(1,n+1,1):
+        sum+=i
+        print(i,sum)
+    print("x=",x)
+
+num=(int(input("숫자:")))
+hap(num)
+print("x=",x)
+
+
+cnt=0
+def countnum():
+    global cnt
+    cnt+=1
+
+countnum()
+countnum()
+countnum()
+print("카운트=",cnt)
+
+apple=10
+def eatapple(x):
+    global apple
+    apple-=x
+
+eatapple(1)
+eatapple(3)
+eatapple(2)
+print("남은 사과 개수=",apple)
+
+
+city=("seoul","busan","jeju")
+def tupStr(city):
+    return city.upper()
+uprcity=tuple(map(tupStr,city))
+print(uprcity)
+
+last=["김","홍","이"]
+first=["유신","길동","순신"]
+name=list(zip(last,first))
+
+
+def fact(n):
+    if n==1:
+        return 1
+    else:
+        return n*fact(n-1)
+num=int(input("숫자:"))
+print("{}!={}".format(num,fact(num)))
+
+
+#먼가이상
+def powerNum(x,y):
+    if y<=1:
+        return 1
+    else:
+        return  x*powerNum(x,(y-1))
+num1,num2=map(int,input("숫자1,숫자2:").split("."))
+print("{}**{}={}".format(num1,num2,powerNum(num1,num2)))
+
+
+gradeList1=[(1,"BTS",80), (2,"HKD",90),(3,"KCH",95), (4,"HMH",70), (5,"YDH",85)]
+yee=sorted(gradeList1,key=lambda x:x[2],reverse=True)
+rank=0
+print("번호 \t 이름 \t 성적 \t 순위")
+print("=== \t ==== \t ==== \t ===")
+for a,b,c in yee:
+    rank += 1
+    print(f"{a}  \t  {b}\t  {c} \t  {rank}")
+
+    
+def fibo(n):
+    if n<=1:
+        return n
+    else:
+        return fibo(n-1) + fibo(n-2)
+
+
+
+n=int(input("원하는 숫자:"))
+list_num=[]
+for i in range(n):
+    list_num.append(fibo(i))
+print(list_num)
+
+
+"""
+# 복습하기 9주차부터
+
+num=[10,15,20,25,30]
+sum=0
+for i in num:
+    sum+=i
+print(f"합계:{sum}")
+
+num=[1,2,3,3,4,5,6,7,2,3,8,9,10]
+thr=0
+for i in num:
+    if i==3:
+        thr+=1
+print(f"3의 개수:{thr}개")
+
+num=[15,23,18,47,23]
+hol=0
+zzak=0
+for i in  num:
+    if i%2==1:
+        hol=hol+1
+    if i%2==0:
+        zzak=zzak+1
+print(f"홀수 개수:{hol}")
+print(f"짝수 개수:{zzak}")
+
+
+numA=[1,2,3]
+numB=[10,20,30]
+numA.extend(numB)
+print(numA)
+
+alphaList=['a','b','c','d','e','f','g','h']
+print(alphaList[0])
+print(alphaList[1])
+print(alphaList[-1])
+print(alphaList[-2])
+
+alphaList=['a','b','c','d','e','f','g','h']
+print(alphaList[4])
+print(alphaList[-5])
+
+alphaList=['a','b','c','d','e','f','g','h']
+print(alphaList[2:6])
+print(alphaList[-6:6])
+
+num=[13,15,73,14,738,8,99,1246]
+num.sort()
+num.sort(reverse=True)
+print(num)
+
+numList = [11,23,5,7,15,9,8]
+numList.sort(reverse=True)
+print(numList)
+
+flower=["장미","백합","튤립","국화","수선화"]
+for i in flower:
+    if len(i)==3:
+        print(i)
+
+# 튜플은 () 생략 가능
+num=1,2,3
+print(num)
+
+str=["a","b","c"]
+str1=tuple(str)  # 만들어질 튜플 이름=tuple(튜플로 변경할 리스트 이름)
+type(str1)
+
+num=1 #<- 이거는 정수로 인식해버림 (1)도 마찬가지 그러니까 1,로 해야 함
+num=1,
+
+flower=("들국화","채송와","봉숭화","맨드라미","해바라기")
+listflower=list(flower)
+listflower.append("민들레")
+print(listflower)
+
+flower=("들국화","채송와","봉숭화","맨드라미","해바라기")
+listflower=list(flower)
+listflower.append("민들레")
+listflower[1]="채송화"
+flower=tuple(listflower)
+print(flower)
+
+num=(11,12,13,14,15)
+sum=0
+for i in num:
+    sum+=i
+    print(i)
+print(f"합계={sum}")
+
+num=[12,15,8,4,9]
+sortednum=sorted(num)
+sortednumm=sorted(num,reverse=True)
+print(sortednum)
+print(sortednumm)
+
+language=["Java","Python","R","C","Pascal","SQL"]
+sortedlanguage=sorted(language,key=lambda x:x[0], reverse=True)
+print(sortedlanguage)
+
+num=(20,30,15,31,23)
+sortednum=sorted(num,reverse=True)
+sum=0
+for i in sortednum:
+    sum+=i
+    print(i)
+print(f"합계:{sum}")
+
+numlist=[[10,20],[30,40],[10,100]]
+for a,b in numlist:
+    print(a,b)
+
+numlist=[[10,20],[30,40],[10,100]]
+for i in numlist:
+    for j in i:
+        print(j,end=" ")
+    print()
+
+book=[("Java",15000),("Python",25000),("C",18000),("Java",19000)]
+sortedbook=sorted(book, key=lambda x:x[1], reverse=True)
+for i,j in sortedbook:
+    print(f"{i}\t{j}")
+
+# 딕셔너리 .keys .values .items  순서로 키 밸류 아이템은 둘 다 표기
+# 새로운 딕셔너리 변수 = dict(zip(key, value))
+
+name=["이순신","강감찬","홍길동"]
+score=[80,90,100]
+grade=dict(zip(name,score))
+print(grade)
+
+#values값 다 더해서 합계 표시
+#딕셔너리니까 {}
+grade={'아이키': 90, '박보검': 95, '유아인': 85, '전지현': 100, '송중기': 90}
+sum=0
+for i,j in grade.items():
+    sum=sum+j
+    print(i,j)
+print("="*8)
+print(f"합계:{sum}")
+
+def function():
+    for i in range(5):
+        print("공부하기 싫다")
+function()
+
+def sib():
+    name=input("이름:")
+    age=input("나이:")
+    print("이름은 {}이고 나이는 {}세 입니다.".format(name,age))
+sib()
+
+def gg():
+    gugu=int(input("원하는 구구단:"))
+    for i in range(1,10,1):
+        print(f"{gugu}*{i}={gugu*i}")
+gg()
+
+def cal():
+    num1,buho,num2=input("숫자1,부호,숫자2:").split()
+    if buho=="+":
+        print(f"{num1}+{num2}={int(num1)+int(num2)}")
+    elif buho=="-":
+        print(f"{num1}-{num2}={int(num1)-int(num2)}")
+    elif buho=="*":
+        print(f"{num1}*{num2}={int(num1)*int(num2)}")
+    else:
+        print(f"{num1}/{num2}={int(num1)/int(num2)}")
+cal()
+
+def hap(x,y):
+    hap=x+y
+    print("{}+{}={}".format(x,y,hap))
+a=10
+b=20
+hap(a,b)
+
+def hap(a,b):
+    print(a)
+    print(b)
+    print("{}+{}={}".format(a,b,a+b))
+hap(a=50,b=40)
+
+def hap(num):
+    hap=0
+    for i in num:
+        print(i)
+        hap+=i
+    print("합={}".format(hap))
+num=[1,2,3,4,5]
+hap(num)
+
+def sibal(*args):
+    for i in args:
+        print(i)
+sibal("민서","매우","보고","싶다","민서가","예민하다","조심해야지","내가","해줄 수 있는 게 뭐가 있을까...")
+
+def sibalbal(**kwargs):
+    for i,j in kwargs.items():
+        print(f"{i} : {j}")
+sibalbal(key="2022100087",value="임정민")
+
+def sibal(a,b):
+    hap=a+b
+    return hap 
+a=10
+b=20
+result=sibal(a,b) 
+print("{}+{}={}".format(a,b,result))
+
+def fact(x):
+    dap=1
+    for i in range(x,0,-1):
+        dap=dap*i
+    return dap
+num=int(input("어떤 숫자:"))
+result=fact(num)
+print(f"{num}!={result}")
+
+chr() # 아스키코드 숫자를 영어로
+ord() # 영어를 아스키코드 숫자로 
+
+start=input("시작 문자:")
+end=input("끝 문자:")
+for i in range(ord(start),ord(end)+1,1):
+    print(chr(i),end=" ")
+
+
+"""
+"""
+try:
+    num1=int(input("숫자를 입력하세요:"))
+    num2=int(input("숫자를 입력하세요:"))
+    num=num1//num2
+    na=num1%num2
+    print("{}/{}={}....{}".format(num1,num2,num,na))
+except ZeroDivisionError:
+    print("숫자는 0으로 나눌 수 없습니다.")
+    exit(1)
+
+else:
+    print("계산 결과가 정상적으로 출력되었습니다.")
+finally: # 무조건 출력
+    print("저는 정상일 때 또는 에러일 때 무조건 출력됩니다.")
+
+try:
+    liststr=["python","programming","seoul","korea","university"]
+    idx=int(input("문자열 인덱스를 입력하세요:"))
+    print(liststr[idx]+"...."+str(len(liststr[idx])))
+except IndexError:
+    print("찾고자 하는 인덱스가 없습니다.")
+    exit(1) 
+
+f=open("c:\\python_work\\sample.txt","r",encoding="utf-8")
+print(f.read(4)) # 4없애면 그냥 다 읽음 안에 들어가는 건 바이트 수
+
+try:
+    f=open("c:\\python_work\\sample.txt","r",encoding="utf-8")
+    aa=f.readlines()
+    for i in aa:
+        print(i,end="")
+except FileNotFoundError:
+    print("파일을 열지 못했습니다.")
+    exit(1)
+"""
+"""try:
+    f=open("c:\\python_work\\sample.txt","r",encoding="utf-8")
+    aa=f.readline()
+    while aa!=" ":
+        print(aa)
+        aa=f.readline()
+except FileNotFoundError:
+    print("파일을 열지 못했습니다.")
+    exit(1)
+"""
+"""
+try:
+    f=open("c:\\python_work\\score.txt","r",encoding="utf-8")
+    aa=f.readlines()
+    sum=0
+    avg=0
+    for i in aa:
+        print(i,end="")
+        sum+=int(i)
+    avg=float(sum/len(aa))
+    print("\n합계:{}".format(sum))
+    print("평균:{:,.2f}".format(avg))
+except:
+    print("파일 못찾앗다이새기야")
+    exit(1)
+
+
+try:
+    f=open("c:\\python_work\\gugudan.txt","w",encoding="utf-8")
+    gugu=int(input("원하는 구구단:"))
+    for i in range(1,10,1):
+        f.write("{}*{}={}\n".format(gugu,i,gugu*i))
+
+
+except:
+    print("파일 못찾앗다이새기야")
+    exit(1)
+f.close()
+
+try:
+    f=open("c:\\python_work\\gugudan.txt","a",encoding="utf-8")
+    gugu=int(input("원하는 구구단:"))
+    for i in range(1,10,1):
+        f.write("{}*{}={}\n".format(gugu,i,gugu*i))
+
+
+except:
+    print("파일 못찾앗다이새기야")
+    exit(1)
+f.close()
+
+try:
+    fr=open("c:\\python_work\\flower_r.txt","r",encoding="utf-8")
+    fw=open("c:\\python_work\\flower_w.txt","w",encoding="utf-8")
+    aa=fr.readlines()
+    for i in aa:
+        fw.write(i.upper())
+
+except:
+    print("파일을 찾지 못했따이새끼야")
+    exit(1)
+
+fr.close()
+fw.close()
+
+try:
+    fw=open("c:\\python_work\\animal.txt","w",encoding="utf-8")
+    animal=[]
+    for i in range(1,6,1):
+        animal.append(input("동물을 입력해주세요:")+"\n")
+    fw.writelines(animal)
+
+except FileNotFoundError:
+    print("파일을 열지 못했습니다.")
+    exit(1)
+
+fw.close()
+
+def sibal(a,b):
+    hap=a+b
+    return hap
+a=10
+b=20
+result=sibal(a,b)
+print("{}+{}={}".format(a,b,result))
+
+def siblalama(fuckyou):
+    return "{}야... 보고 싶다...".format(fuckyou)
+
+fuckyou=input("지금 가장 보고싶은 사람은? :")
+print(siblalama(fuckyou))
+
+try:
+    f=open("c:\\python_work\\ipsa.txt","r",encoding="utf-8")
+    aa=f.readlines()
+    print("**합격자 발표**")
+    for i in range(5):
+        name,score=aa[i].split()
+        if int(score)>=80:
+            print("{}님 점수 {}점".format(name,score))
+        else:
+            continue
+
+except FileNotFoundError:
+    print("ipsa.txt 파일을 찾지 못했습니다람쥐\n")
+    exit(1)
+
+f.close()
+
+
+def sibal(name):
+    return "{}련아 ㅎㅇ".format(name)
+
+name=input("이름 내놔 십련아:")
+print(sibal(name))
+"""
+

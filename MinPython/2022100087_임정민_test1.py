@@ -1,8 +1,16 @@
-gradeList1=[(1,"BTS",80), (2,"HKD",90),(3,"KCH",95), (4,"HMH",70), (5,"YDH",85)]
-yee=sorted(gradeList1,key=lambda x:x[2],reverse=True)
-rank=0
-print("번호 \t 이름 \t 성적 \t 순위")
-print("=== \t ==== \t ==== \t ===")
-for a,b,c in yee:
-    rank += 1
-    print(f"{a}  \t  {b}\t  {c} \t  {rank}")
+try:
+    f=open("c:\\python_work\\ipsa.txt","r",encoding="utf-8")
+    aa=f.readlines()
+    print("**합격자 발표**")
+    for i in range(5):
+        name,score=aa[i].split()
+        if int(score)>=80:
+            print("{}님 점수 {}점".format(name,score))
+        else:
+            continue
+
+except FileNotFoundError:
+    print("ipsa.txt 파일을 찾지 못했습니다람쥐\n")
+    exit(1)
+
+f.close()

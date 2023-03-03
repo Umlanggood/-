@@ -7,3 +7,4 @@ elif a=="그냥":
     print("그냥 귀여운 건 맞지")
 else:
     print("아무튼 귀엽지")
+print("민서야 사랑해❤")
